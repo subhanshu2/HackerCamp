@@ -1,6 +1,8 @@
 package logicturtle.innovaceraccidentalert;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.emergency2)
     EditText emergency2;
 
+    private SharedPreferences sharedPreferences;
+    private static final String SHARED_PREFS = "emergency";
+    private static final String EMERGENCY1 = "emergency1";
+    private static final String EMERGENCY2 = "emergency2";
 
 
     @Override
@@ -35,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        sharedPreferences = this
+                .getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
     }
 
 
@@ -50,6 +58,16 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference reference = db.getReference();
         reference.child(Name).setValue(new UserModel(Name,Emergency1,Emergency2));
+
+        sharedPreferences
+                .edit()
+                .putString(EMERGENCY1, Emergency1)
+                .apply();
+
+        sharedPreferences
+                .edit()
+                .putString(EMERGENCY2, Emergency2)
+                .apply();
 
     }
 
