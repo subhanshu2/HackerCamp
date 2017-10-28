@@ -14,7 +14,7 @@
         android:layout_marginTop="50dp"
         android:text="A  L  C  H  E  M  I  S  T"
         android:textColor="@color/white"
-        android:textSize="29sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:textAllCaps="true" />
 
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/ic_email_24dp"
+            android:src="@drawable/ic_phone_24dp"
             android:tint="@color/white" />
 
         <logicturtle.innovaceraccidentalert.customfonts.EditText_Lato_Regular
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/ic_email_24dp"
+            android:src="@drawable/ic_phone_24dp"
             android:tint="@color/white" />
 
         <logicturtle.innovaceraccidentalert.customfonts.EditText_Lato_Regular
