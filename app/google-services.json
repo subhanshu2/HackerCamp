@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "227341529712",
+    "firebase_url": "https://hackercamp-5ee46.firebaseio.com",
+    "project_id": "hackercamp-5ee46",
+    "storage_bucket": "hackercamp-5ee46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227341529712:android:0655aa625358318e",
+        "android_client_info": {
+          "package_name": "logicturtle.innovaceraccidentalert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227341529712-bqei4612683jeksvvt7964e7cdf97jen.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "logicturtle.innovaceraccidentalert",
+            "certificate_hash": "a212fb3725e53ad0131c45f6a9645b2a16a80b0c"
+          }
+        },
+        {
+          "client_id": "227341529712-pfb5smlc68vgncvucqqktr6vvduult6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr7FpF4-gtW2Ve5ZhuOJHanJLQw_8rO4c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227341529712-pfb5smlc68vgncvucqqktr6vvduult6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
