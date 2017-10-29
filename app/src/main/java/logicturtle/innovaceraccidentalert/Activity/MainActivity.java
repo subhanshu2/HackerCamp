@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private static final String SHARED_PREFS = "emergency";
+    private static final String NAME = "name";
     private static final String EMERGENCY1 = "emergency1";
     private static final String EMERGENCY2 = "emergency2";
     ProgressLoader progressLoader;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.submit)
     public void submit(){
         progressLoader.show();
-        String Name = getStringFromEditText(name);
+        final String Name = getStringFromEditText(name);
         final String Emergency1 = getStringFromEditText(emergency1);
         final String Emergency2 = getStringFromEditText(emergency2);
 
@@ -74,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                     progressLoader.dismiss();
+
+                sharedPreferences
+                        .edit()
+                        .putString(NAME, Name)
+                        .apply();
+
                 sharedPreferences
                         .edit()
                         .putString(EMERGENCY1, Emergency1)
