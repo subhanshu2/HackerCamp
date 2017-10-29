@@ -5,18 +5,16 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import butterknife.BindView;
 import butterknife.OnClick;
+import logicturtle.innovaceraccidentalert.FireAlarm;
 import logicturtle.innovaceraccidentalert.R;
-import logicturtle.innovaceraccidentalert.ShakeService;
-import logicturtle.innovaceraccidentalert.customfonts.TextView_Lato_Medium;
+import logicturtle.innovaceraccidentalert.AppService;
 
 public class AccelerometerActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -24,7 +22,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private long tStart;
     private int flag = 0;
     private ProgressBar progressBar;
-
+    private FireAlarm fireAlarm;
     TextView speedTV;
 
     private static final int MAX_SPEED=20;
@@ -33,8 +31,9 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accelerometer);
-        Intent intent=new Intent(this, ShakeService.class);
+        Intent intent=new Intent(this, AppService.class);
         startService(intent);
+        fireAlarm = new FireAlarm(this);
         progressBar= (ProgressBar) findViewById(R.id.circle_progress_bar);
         speedTV= (TextView) findViewById(R.id.speed);
         tStart = System.currentTimeMillis();
@@ -87,10 +86,13 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
 
     private void fireAlarm() {
         flag = 1;
+        fireAlarm.startAlarm();
+
     }
 
     @OnClick(R.id.stop_alarm)
     public void stopAlarm() {
         flag = 0;
+        fireAlarm.stopAlarm();
     }
 }

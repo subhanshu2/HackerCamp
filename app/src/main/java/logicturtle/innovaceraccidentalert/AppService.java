@@ -13,7 +13,7 @@ import android.widget.Toast;
 /**
  * Created by user on 29-10-2017.
  */
-public class ShakeService extends Service implements ShakeListener.OnShakeListener {
+public class AppService extends Service implements ShakeListener.OnShakeListener {
     private ShakeListener mShaker;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -23,35 +23,48 @@ public class ShakeService extends Service implements ShakeListener.OnShakeListen
     public IBinder onBind(Intent intent) {
         return null;
     }
+
     public void onCreate() {
         super.onCreate();
-        Log.d("ayush","service created ");
-        this.mSensorManager = ((SensorManager)getSystemService(Context.SENSOR_SERVICE));
-        this.mAccelerometer = this.mSensorManager.getDefaultSensor(1);
+        Log.d("ayush", "service created ");
+        drowsinessDetection();
+        mSensorManager = ((SensorManager) getSystemService(Context.SENSOR_SERVICE));
+        mAccelerometer = this.mSensorManager.getDefaultSensor(1);
         mShaker = new ShakeListener(this);
         mShaker.setOnShakeListener(this);
-        Toast.makeText(ShakeService.this, "Service is created!", Toast.LENGTH_LONG).show();
+        Toast.makeText(AppService.this, "Service is created!", Toast.LENGTH_LONG).show();
         Log.d(getPackageName(), "Created the Service!");
-        check=1;
+        check = 1;
     }
+
     @Override
     public void onShake() {
-        if(check==1) {
-            Toast.makeText(ShakeService.this, "SHAKEN!", Toast.LENGTH_LONG).show();
+        if (check == 1) {
+            Toast.makeText(AppService.this, "SHAKEN!", Toast.LENGTH_LONG).show();
             final Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vib.vibrate(500);
-            //sms api call here.............
+            //sms call here.............
         }
 
     }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if(!HackerCamp.isAppOnForeground(this)){
+
+        }
+
         return super.onStartCommand(intent, flags, startId);
 
     }
-    public void onDestroy(){
+
+    public void onDestroy() {
         super.onDestroy();
-        check=0;
-        Log.d(getPackageName(),"Service Destroyed.");
+        check = 0;
+        Log.d(getPackageName(), "Service Destroyed.");
+    }
+
+    private void drowsinessDetection() {
+        //firebase call + alarm raise...............
     }
 }

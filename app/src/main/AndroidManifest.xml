@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <service android:enabled="true"
-            android:name=".ShakeService"/>
+            android:name=".AppService"/>
 
         <activity android:name=".MainActivity"></activity>
     </application>
