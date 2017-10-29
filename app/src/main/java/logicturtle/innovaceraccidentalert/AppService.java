@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.location.Address;
+import android.location.Location;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
+
 
 /**
  * Created by user on 29-10-2017.
@@ -24,6 +27,8 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
     private static final String NAME = "name";
     private static final String EMERGENCY1 = "emergency1";
     private static final String EMERGENCY2 = "emergency2";
+    double latitude = 28.621616;
+    double longitude = 77.356224;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -54,8 +59,11 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
             final String emergency1 = sharedPreferences.getString(EMERGENCY1, "");
             final String name = sharedPreferences.getString(NAME, "");
             final String emergency2 = sharedPreferences.getString(EMERGENCY2, "");
-            MessageUtil.sendMessage(emergency1, name+" is injured in accident");
-            MessageUtil.sendMessage(emergency2, name+" is injured in accident");
+
+            MessageUtil.sendMessage(emergency1, name + " is injured in accident at " + latitude + ", " + longitude);
+            MessageUtil.sendMessage(emergency2, name + " is injured in accident at " + latitude + ", " + longitude);
+
+
             //sms call here.............
         }
 
@@ -63,7 +71,7 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if(!HackerCamp.isAppOnForeground(this)){
+        if (!HackerCamp.isAppOnForeground(this)) {
 
         }
 
