@@ -26,6 +26,7 @@ public class FireAlarm {
 
     public void stopAlarm() {
         mp.stop();
+        mp.pause();
     }
 
 
