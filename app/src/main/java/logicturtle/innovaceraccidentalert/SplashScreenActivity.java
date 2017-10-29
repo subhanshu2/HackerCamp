@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import logicturtle.innovaceraccidentalert.Activity.AccelerometerActivity;
+import logicturtle.innovaceraccidentalert.Activity.MainActivity;
 
 /**
  * Created by as on 28-Oct-17.
@@ -37,13 +39,15 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                if (!(emergency1.isEmpty()&&emergency2.isEmpty())) {
+                if (!(emergency1==null&&emergency2==null)) {
                     Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                     startActivity(i);
 
                     finish();
                 }   else {
 
+                    Intent i = new Intent(SplashScreenActivity.this, AccelerometerActivity.class);
+                    startActivity(i);
 
                 }
             }
