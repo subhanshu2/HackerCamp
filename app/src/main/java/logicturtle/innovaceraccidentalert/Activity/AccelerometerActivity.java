@@ -25,20 +25,20 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private FireAlarm fireAlarm;
     TextView speedTV;
 
-    private static final int MAX_SPEED=20;
+    private static final int MAX_SPEED = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accelerometer);
-        Intent intent=new Intent(this, AppService.class);
+        Intent intent = new Intent(this, AppService.class);
         startService(intent);
         fireAlarm = new FireAlarm(this);
-        progressBar= (ProgressBar) findViewById(R.id.circle_progress_bar);
-        speedTV= (TextView) findViewById(R.id.speed);
+        progressBar = (ProgressBar) findViewById(R.id.circle_progress_bar);
+        speedTV = (TextView) findViewById(R.id.speed);
         tStart = System.currentTimeMillis();
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-       // sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -68,16 +68,16 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
                 long tDelta = tEnd - tStart;
                 double elapsedSeconds = tDelta / 1000.0;
                 int speed = (int) (acceleration * elapsedSeconds);
-                speed=speed*5/18;
-                Log.d("ayush","speed"+speed);
+                speed = speed * 5 / 18;
+                Log.d("ayush", "speed" + speed);
                 final int finalSpeed = speed;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        speedTV.setText(finalSpeed +" "+"km/hr");
+                        speedTV.setText(finalSpeed + " " + "km/hr");
                     }
                 });
-                progressBar.setProgress((MAX_SPEED/100));
+                progressBar.setProgress((MAX_SPEED / 100));
                 if (speed > MAX_SPEED) {
                     progressBar.setProgress(100);
                 }
