@@ -1,10 +1,9 @@
-package com.a2doodh.a2doodhapp.GPS;
+package logicturtle.innovaceraccidentalert;
 
 import android.location.Address;
 import android.location.Geocoder;
-
-import com.a2doodh.a2doodhapp.Activity.A2doodhApp;
-
+import android.location.Location;
+import android.util.Log;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class LocationDecoding {
 
     public Address decodeLocation() {
 
-        Geocoder geocoder = new Geocoder(A2doodhApp.getAppContext());
+        Geocoder geocoder = new Geocoder(HackerCamp.getAppContext());
         try {
             address = geocoder.getFromLocation(latitude, longitude, 1);
         } catch (IOException e) {
@@ -58,5 +57,24 @@ public class LocationDecoding {
         return addresses.getSubLocality();
     }
 
-
+// if (SmartLocation.with(getContext()).location().state().isAnyProviderAvailable()) {
+//        SmartLocation.with(getContext()).location()
+//                .oneFix()
+//                .start(new OnLocationUpdatedListener() {
+//                    @Override
+//                    public void onLocationUpdated(Location location) {
+//                        Log.d("ayush", location.getProvider());
+//                        latitude = location.getLatitude();
+//                        longitude = location.getLongitude();
+//                        if (location != null) {
+//                            LocationDecoding locationDecoding = new LocationDecoding(latitude, longitude);
+//                            Address address = locationDecoding.decodeLocation();
+//                            setLocationFields(address);
+//
+//                        } else {
+//                            CustomToast.show(getResources().getString(R.string.location_not_found));
+//                        }
+//                    }
+//                });
+//    }
 }

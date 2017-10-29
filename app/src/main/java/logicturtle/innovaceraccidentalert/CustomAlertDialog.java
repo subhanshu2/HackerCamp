@@ -1,10 +1,7 @@
-package com.a2doodh.a2doodhapp.Utils;
+package logicturtle.innovaceraccidentalert;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
-
-import com.a2doodh.a2doodhapp.Activity.A2doodhApp;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
@@ -46,7 +43,7 @@ public class CustomAlertDialog {
 
         warningListener = (WarningListener) fragment;
 
-        Context context = A2doodhApp.getAppContext();
+        Context context = HackerCamp.getAppContext();
         if (context == null)
             return;
         new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
