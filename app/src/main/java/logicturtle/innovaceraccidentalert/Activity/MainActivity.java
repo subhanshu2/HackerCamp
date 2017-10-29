@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, AccelerometerActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         task.addOnFailureListener(new OnFailureListener() {

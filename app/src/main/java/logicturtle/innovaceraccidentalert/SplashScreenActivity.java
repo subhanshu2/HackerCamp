@@ -39,7 +39,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                if (!(emergency1==null&&emergency2==null)) {
+                if ((emergency1==""&&emergency2=="")) {
                     Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                     startActivity(i);
 
