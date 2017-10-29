@@ -3,6 +3,7 @@ package logicturtle.innovaceraccidentalert;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.IBinder;
@@ -18,6 +19,11 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     public int check;
+    private SharedPreferences sharedPreferences;
+    private static final String SHARED_PREFS = "emergency";
+    private static final String NAME = "name";
+    private static final String EMERGENCY1 = "emergency1";
+    private static final String EMERGENCY2 = "emergency2";
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -35,6 +41,8 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
         Toast.makeText(AppService.this, "Service is created!", Toast.LENGTH_LONG).show();
         Log.d(getPackageName(), "Created the Service!");
         check = 1;
+        sharedPreferences = this
+                .getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
     }
 
     @Override
@@ -43,6 +51,11 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
             Toast.makeText(AppService.this, "SHAKEN!", Toast.LENGTH_LONG).show();
             final Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vib.vibrate(500);
+            final String emergency1 = sharedPreferences.getString(EMERGENCY1, "");
+            final String name = sharedPreferences.getString(NAME, "");
+            final String emergency2 = sharedPreferences.getString(EMERGENCY2, "");
+            MessageUtil.sendMessage(emergency1, name+" is injured in accident");
+            MessageUtil.sendMessage(emergency2, name+" is injured in accident");
             //sms call here.............
         }
 
