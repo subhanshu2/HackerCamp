@@ -1,6 +1,8 @@
 package logicturtle.innovaceraccidentalert.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -15,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import logicturtle.innovaceraccidentalert.FireAlarm;
+import logicturtle.innovaceraccidentalert.MessageUtil;
 import logicturtle.innovaceraccidentalert.R;
 import logicturtle.innovaceraccidentalert.AppService;
 
@@ -23,6 +26,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private SensorManager sensorManager;
     private long tStart;
     private int flag = 0;
+
 
     @BindView(R.id.circle_progress_bar)
     ProgressBar progressBar;
@@ -43,6 +47,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         fireAlarm = new FireAlarm(this);
         tStart = System.currentTimeMillis();
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -93,6 +98,8 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private void fireAlarm() {
         flag = 1;
         fireAlarm.startAlarm();
+
+
     }
 
     @OnClick(R.id.stop_alarm)
