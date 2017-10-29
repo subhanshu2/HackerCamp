@@ -54,9 +54,7 @@ public class MainActivity extends AppCompatActivity {
         PushNotification.sendPushNotification(this,"vjfnb","vcmuvbinj",R.drawable.checked);
         sharedPreferences = this
                 .getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-
         progressLoader = new ProgressLoader(this);
-
     }
 
 

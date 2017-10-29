@@ -95,8 +95,6 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private void fireAlarm() {
         flag = 1;
         fireAlarm.startAlarm();
-
-
     }
 
     @OnClick(R.id.stop_alarm)
