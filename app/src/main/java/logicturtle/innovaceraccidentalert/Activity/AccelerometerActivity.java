@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import butterknife.OnClick;
 import logicturtle.innovaceraccidentalert.FireAlarm;
 import logicturtle.innovaceraccidentalert.R;
@@ -67,7 +66,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
                 long tEnd = System.currentTimeMillis();
                 long tDelta = tEnd - tStart;
                 double elapsedSeconds = tDelta / 1000.0;
-                int speed = (int) (acceleration * elapsedSeconds);
+                int speed = (int) (acceleration+20);
                 speed = speed * 5 / 18;
                 Log.d("ayush", "speed" + speed);
                 final int finalSpeed = speed;
