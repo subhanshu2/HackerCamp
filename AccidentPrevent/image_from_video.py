@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
-cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('http://10.10.1.198:4747/mjpegfeed?640x480')
 count = 0
 
 while True:
