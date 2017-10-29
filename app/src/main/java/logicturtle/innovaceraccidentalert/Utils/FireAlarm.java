@@ -1,7 +1,9 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Utils;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+
+import logicturtle.innovaceraccidentalert.R;
 
 /**
  * Created by user on 29-Oct-17.

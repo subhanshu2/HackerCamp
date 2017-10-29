@@ -8,6 +8,7 @@ android {
         applicationId "logicturtle.innovaceraccidentalert"
         minSdkVersion 16
         targetSdkVersion 26
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,7 +33,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.kaopiz:kprogresshud:1.0.5'
     compile 'info.hoang8f:fbutton:1.0.5'
-    compile 'io.nlopez.smartlocation:library:3.3.1'
     compile 'com.github.CardinalNow:Android-CircleProgressIndicator:v0.2'
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'cn.pedant.sweetalert:library:1.3'

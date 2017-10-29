@@ -20,10 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import logicturtle.innovaceraccidentalert.ProgressLoader;
-import logicturtle.innovaceraccidentalert.PushNotification;
+
 import logicturtle.innovaceraccidentalert.R;
-import logicturtle.innovaceraccidentalert.UserModel;
+import logicturtle.innovaceraccidentalert.Model.UserModel;
+import logicturtle.innovaceraccidentalert.Utils.ProgressLoader;
+import logicturtle.innovaceraccidentalert.Utils.PushNotification;
 
 public class MainActivity extends AppCompatActivity {
 

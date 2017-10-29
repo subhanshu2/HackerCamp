@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Activity;
 
 import android.app.ActivityManager;
 import android.app.Application;

@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Utils;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import logicturtle.innovaceraccidentalert.Activity.AccelerometerActivity;
+import logicturtle.innovaceraccidentalert.R;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 

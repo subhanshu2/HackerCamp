@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import logicturtle.innovaceraccidentalert.Activity.AccelerometerActivity;
-import logicturtle.innovaceraccidentalert.Activity.MainActivity;
+import logicturtle.innovaceraccidentalert.R;
 
 /**
  * Created by as on 28-Oct-17.
