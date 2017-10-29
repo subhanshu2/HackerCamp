@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Services;
 
 import android.app.Service;
 import android.content.Context;
@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.location.Address;
-import android.location.Location;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
+
+import logicturtle.innovaceraccidentalert.Activity.HackerCamp;
+import logicturtle.innovaceraccidentalert.Utils.MessageUtil;
+import logicturtle.innovaceraccidentalert.Utils.ShakeListener;
 
 
 /**

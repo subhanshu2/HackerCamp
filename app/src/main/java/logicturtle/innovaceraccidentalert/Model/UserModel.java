@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Model;
 
 /**
  * Created by kunwar on 28/10/17.

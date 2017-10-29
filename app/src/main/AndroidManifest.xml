@@ -24,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.AccelerometerActivity"/>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <service android:enabled="true"
-            android:name=".AppService"/>
+            android:name=".Services.AppService" />
 
         <activity android:name=".Activity.MainActivity"></activity>
 

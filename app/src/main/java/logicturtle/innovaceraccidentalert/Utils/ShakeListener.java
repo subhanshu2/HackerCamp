@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Utils;
 
 import android.content.Context;
 import android.hardware.SensorListener;

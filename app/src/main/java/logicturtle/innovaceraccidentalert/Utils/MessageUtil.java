@@ -1,8 +1,5 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Utils;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.telephony.SmsManager;
 import android.util.Log;
 

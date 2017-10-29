@@ -1,8 +1,10 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Utils;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import logicturtle.innovaceraccidentalert.Activity.HackerCamp;
 
 /**
  * Created by kunwar on 3/8/17.
