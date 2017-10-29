@@ -26,11 +26,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private SensorManager sensorManager;
     private long tStart;
     private int flag = 0;
-    private SharedPreferences sharedPreferences;
-    private static final String SHARED_PREFS = "emergency";
-    private static final String NAME = "name";
-    private static final String EMERGENCY1 = "emergency1";
-    private static final String EMERGENCY2 = "emergency2";
+
 
     @BindView(R.id.circle_progress_bar)
     ProgressBar progressBar;
@@ -51,8 +47,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         fireAlarm = new FireAlarm(this);
         tStart = System.currentTimeMillis();
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sharedPreferences = this
-                .getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -103,11 +98,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private void fireAlarm() {
         flag = 1;
         fireAlarm.startAlarm();
-        final String emergency1 = sharedPreferences.getString(EMERGENCY1, "");
-        final String name = sharedPreferences.getString(NAME, "");
-        final String emergency2 = sharedPreferences.getString(EMERGENCY2, "");
-        MessageUtil.sendMessage(emergency1, name+" is injured in accident");
-        MessageUtil.sendMessage(emergency2, name+" is injured in accident");
+
 
     }
 
