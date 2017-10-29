@@ -1,8 +1,6 @@
 package logicturtle.innovaceraccidentalert.Activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,10 +14,9 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import logicturtle.innovaceraccidentalert.FireAlarm;
-import logicturtle.innovaceraccidentalert.MessageUtil;
 import logicturtle.innovaceraccidentalert.R;
-import logicturtle.innovaceraccidentalert.AppService;
+import logicturtle.innovaceraccidentalert.Services.AppService;
+import logicturtle.innovaceraccidentalert.Utils.FireAlarm;
 
 public class AccelerometerActivity extends AppCompatActivity implements SensorEventListener {
 

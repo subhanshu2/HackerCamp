@@ -1,4 +1,4 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Services;
 
 import android.app.Service;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 import android.util.Log;
+
+import logicturtle.innovaceraccidentalert.R;
 
 /**
  * Created by user on 29-Oct-17.

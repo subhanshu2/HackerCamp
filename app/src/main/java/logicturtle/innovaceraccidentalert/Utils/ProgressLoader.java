@@ -1,8 +1,10 @@
-package logicturtle.innovaceraccidentalert;
+package logicturtle.innovaceraccidentalert.Utils;
 
 import android.content.Context;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
+
+import logicturtle.innovaceraccidentalert.R;
 
 /**
  * Created by user on 09-Apr-17.

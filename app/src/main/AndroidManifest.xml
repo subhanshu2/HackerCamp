@@ -4,10 +4,15 @@
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.LOCATION_HARDWARE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
+    <uses-feature android:name="android.hardware.location.gps"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -19,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.AccelerometerActivity"/>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +32,7 @@
             </intent-filter>
         </activity>
         <service android:enabled="true"
-            android:name=".AppService"/>
+            android:name=".Services.AppService" />
 
         <activity android:name=".Activity.MainActivity"></activity>
 
