@@ -11,7 +11,14 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import logicturtle.innovaceraccidentalert.Activity.HackerCamp;
+import logicturtle.innovaceraccidentalert.Utils.FireAlarm;
 import logicturtle.innovaceraccidentalert.Utils.MessageUtil;
 import logicturtle.innovaceraccidentalert.Utils.ShakeListener;
 
@@ -31,6 +38,8 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
     private static final String EMERGENCY2 = "emergency2";
     double latitude = 28.621616;
     double longitude = 77.356224;
+    private FireAlarm fireAlarm;
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -45,6 +54,7 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
         mAccelerometer = this.mSensorManager.getDefaultSensor(1);
         mShaker = new ShakeListener(this);
         mShaker.setOnShakeListener(this);
+        fireAlarm = new FireAlarm(this);
         Toast.makeText(AppService.this, "Service is created!", Toast.LENGTH_LONG).show();
         Log.d(getPackageName(), "Created the Service!");
         check = 1;
@@ -89,5 +99,40 @@ public class AppService extends Service implements ShakeListener.OnShakeListener
 
     private void drowsinessDetection() {
         //firebase call + alarm raise...............
+        Log.d("kunwar", "Here");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("hypno2");
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                if (dataSnapshot.getValue().equals("Alert Off")) {
+
+                    fireAlarm.stopAlarm();
+
+                } else if (dataSnapshot.getValue().equals("Alert On")) {
+
+                    fireAlarm.startAlarm();
+                }
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
